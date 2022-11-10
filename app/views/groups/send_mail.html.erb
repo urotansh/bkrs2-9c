@@ -1,0 +1,38 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>送信が完了しました</h1>
+      <p>内容は以下の通りです。</p>
+      <table class="table table-bordered">
+        <tr>
+          <td class="bg-secondary text-white">グループ名</td>
+          <td><%= @group.name %></td>
+        </tr>
+        <tr>
+          <td class="bg-secondary text-white">宛先</td>
+          <td>
+            <table class="table table-borderless">
+                <tr>
+                  <th class="m-0 p-0">ユーザ名</th>
+                  <th class="m-0 p-0">メールアドレス</th>
+                </tr>
+              <% @group_users.each do |group_user| %>
+                <tr>
+                  <td class="m-0 p-0"><%= group_user.user.name  %></td>
+                  <td class="m-0 p-0"><%= group_user.user.email %></td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="bg-secondary text-white">タイトル</td>
+          <td><%= @title %></td>
+        </tr>
+        <tr>
+          <td class="bg-secondary text-white">本文</p>
+          <td><%= safe_join(@content.split("\n"), tag(:br)) %></td>
+        </tr>
+      </table>
+  </div>
+</div>

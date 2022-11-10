@@ -41,6 +41,18 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:group_id])
   end
   
+  def send_mail
+    # 宛先
+    @group = Group.find(params[:group_id])
+    @group_users = @group.group_users.joins(:user)
+    @email_list = @group_users.pluck(:email)
+    # タイトル
+    @title = params[:title]
+    # 本文
+    @content = params[:content]
+    
+  end
+    
   private
   
   def group_params

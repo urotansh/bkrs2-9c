@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :groups, except: [:destroy] do
     resource :group_users, only: [:create, :destroy]
     get "new_mail" => "groups#new_mail"
+    get "send_mail" => "groups#send_mail"
   end
   
 end
