@@ -37,6 +37,10 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
   
+  def new_mail
+    @group = Group.find(params[:group_id])
+  end
+  
   private
   
   def group_params
