@@ -5,9 +5,8 @@ class EventMailer < ApplicationMailer
   #
   #   en.event_mailer.new_mail.subject
   #
-  def new_mail
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def send_mail(email_list, title, content)
+    @content = content
+    mail to: email_list, subject: title
   end
 end

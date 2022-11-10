@@ -37,6 +37,22 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+  
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,                        # SMTPサーバのポート番号
+    address:              'smtp.gmail.com',           # SMTPサーバのホスト名
+    domain:               'gmail.com',                # HELOドメイン
+    user_name:            '<YOUR EMAIL ADDRESS>',     # メール送信に使用するアカウント
+    password:             '<YOUR EMAIL PASSWORD>',    # メール送信に使用するパスワード
+    authentication:       'login',                    # 認証方法
+                                                      #   :plain（パスワードを平文で送信）、
+                                                      #   :login（パスワードをBase64でエンコードする）
+                                                      #   :cram_md5（チャレンジ/レスポンスによる情報交換と、MD5アルゴリズムによる重要情報のハッシュ化の組み合わせ）
+                                                      #   のいずれかのシンボルを指定する。
+    enable_starttls_auto: true                        # メールの送信にTLSを使用する
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

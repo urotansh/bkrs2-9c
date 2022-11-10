@@ -50,6 +50,8 @@ class GroupsController < ApplicationController
     @title = params[:title]
     # 本文
     @content = params[:content]
+    # ActionMailer実行
+    EventMailer.send_mail(@email_list, @title, @content).deliver
     
   end
     
