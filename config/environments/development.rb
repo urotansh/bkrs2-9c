@@ -44,8 +44,8 @@ Rails.application.configure do
     port:                 587,                        # SMTPサーバのポート番号
     address:              'smtp.gmail.com',           # SMTPサーバのホスト名
     domain:               'gmail.com',                # HELOドメイン
-    user_name:            '<YOUR EMAIL ADDRESS>',     # メール送信に使用するアカウント
-    password:             '<YOUR EMAIL PASSWORD>',    # メール送信に使用するパスワード
+    user_name:            ENV['EMAIL_ACCOUNT'],       # メール送信に使用するアカウント
+    password:             ENV['EMAIL_PASSWORD'],      # メール送信に使用するパスワード
     authentication:       'login',                    # 認証方法
                                                       #   :plain（パスワードを平文で送信）、
                                                       #   :login（パスワードをBase64でエンコードする）
