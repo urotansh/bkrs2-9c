@@ -58,3 +58,4 @@ gem 'devise'
 gem 'pry-byebug'
 gem 'hirb'          # 出力結果を表として出力するgem
 gem 'hirb-unicode'  # マルチバイト文字の表示を補正するgem
+gem 'dotenv-rails'
